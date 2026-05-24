@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=slowrx
+Comment=SSTV decoder for amateur radio
+Exec=slowrx
+Icon=io.github.windytan.slowrx
+Terminal=false
+Type=Application
+Categories=HamRadio;Audio;
+Keywords=SSTV;radio;amateur;ham;slow-scan;television;
+StartupNotify=true

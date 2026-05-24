@@ -1,0 +1,52 @@
+app-id: io.github.windytan.slowrx
+runtime: org.gnome.Platform
+runtime-version: '50'
+sdk: org.gnome.Sdk
+command: slowrx
+
+finish-args:
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --share=ipc
+  - --socket=pulseaudio
+  - --device=dri
+  - --filesystem=home
+
+modules:
+  - name: fftw3
+    buildsystem: autotools
+    config-opts:
+      - --enable-shared
+      - --disable-static
+      - --enable-threads
+    sources:
+      - type: archive
+        url: https://fftw.org/fftw-3.3.11.tar.gz
+        sha256: 5630c24cdeb33b131612f7eb4b1a9934234754f9f388ff8617458d0be6f239a1
+
+  - name: slowrx
+    buildsystem: simple
+    build-commands:
+      - make PKGDATADIR=/app/share/slowrx
+      - install -Dm755 slowrx /app/bin/slowrx
+      - install -Dm644 slowrx.ui      /app/share/slowrx/slowrx.ui
+      - install -Dm644 aboutdialog.ui /app/share/slowrx/aboutdialog.ui
+      - install -Dm644 io.github.windytan.slowrx.desktop
+          /app/share/applications/io.github.windytan.slowrx.desktop
+      - install -Dm644 io.github.windytan.slowrx.metainfo.xml
+          /app/share/metainfo/io.github.windytan.slowrx.metainfo.xml
+      - install -Dm644 io.github.windytan.slowrx.png
+          /app/share/icons/hicolor/256x256/apps/io.github.windytan.slowrx.png
+    sources:
+      - type: git
+        url: https://github.com/windytan/slowrx.git
+        commit: ca6d7012ae788b5057646170bd86590a7f68bd69
+      - type: patch
+        path: slowrx-pkgdatadir.patch
+        use-git: true
+      - type: file
+        path: io.github.windytan.slowrx.desktop
+      - type: file
+        path: io.github.windytan.slowrx.metainfo.xml
+      - type: file
+        path: io.github.windytan.slowrx.png

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.windytan.slowrx</id>
+  <name>slowrx</name>
+  <summary>SSTV decoder for amateur radio</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>ISC</project_license>
+
+  <description>
+    <p>
+      slowrx is a Slow-Scan Television (SSTV) decoder for Linux. It listens to
+      audio input from a shortwave radio connected to a sound card and decodes
+      incoming SSTV image transmissions in real time.
+    </p>
+    <p>Features include:</p>
+    <ul>
+      <li>Automatic detection of SSTV VIS headers across 25 modes</li>
+      <li>FM demodulation using FFT with adaptive Hann windowing</li>
+      <li>Automatic slant correction via Hough transform</li>
+      <li>FSK ID callsign decoding</li>
+      <li>Saves received images as PNG files</li>
+      <li>Signal level meters (power and SNR)</li>
+    </ul>
+  </description>
+
+  <url type="homepage">https://windytan.github.io/slowrx/</url>
+  <url type="bugtracker">https://github.com/windytan/slowrx/issues</url>
+
+  <developer id="io.github.windytan">
+    <name>Oona Räisänen</name>
+  </developer>
+
+  <launchable type="desktop-id">io.github.windytan.slowrx.desktop</launchable>
+
+  <provides>
+    <binary>slowrx</binary>
+  </provides>
+
+  <categories>
+    <category>HamRadio</category>
+    <category>Audio</category>
+  </categories>
+
+  <keywords>
+    <keyword>SSTV</keyword>
+    <keyword>amateur radio</keyword>
+    <keyword>ham radio</keyword>
+    <keyword>slow-scan television</keyword>
+  </keywords>
+
+  <releases>
+    <release version="0.01" date="2014-01-01">
+      <description>
+        <p>Initial alpha release.</p>
+      </description>
+    </release>
+  </releases>
+
+  <content_rating type="oars-1.1"/>
+</component>
